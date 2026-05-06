@@ -43,6 +43,8 @@ Claude Code loads `CLAUDE.md` automatically and starts a coaching session. On fi
 
 ## Session Commands
 
+All commands are native Claude Code slash commands — type `/` to see them with tab-completion.
+
 | Command | What It Does |
 |---------|-------------|
 | `/scenario [domain]` | Generate a fresh CTA-style scenario |
@@ -136,17 +138,36 @@ cta-coach/
 ├── README.md                               # This file
 ├── cta-rubric.md                           # Review Board scoring rubric
 ├── scenario-001-global-manufacturing.md    # Practice scenario
-└── agents/
-    ├── app-builder-and-developer-agents.md # Platform + Developer coach
-    ├── data-architect-agent.md             # Data architecture coach
-    ├── devops-agent.md                     # DevOps & deployment coach
-    ├── iam-agent.md                        # Identity & access coach
-    ├── integration-agent.md                # Integration architecture coach
-    ├── sharing-visibility-agent.md         # Sharing & visibility coach
-    └── knowledge-updater-agent.md          # Automated knowledge sync agent
+├── .claude/
+│   └── commands/                           # Native Claude Code slash commands
+│       ├── scenario.md                     # /scenario [domain]
+│       ├── mock.md                         # /mock
+│       ├── review.md                       # /review [domain]
+│       ├── feedback.md                     # /feedback
+│       ├── tradeoffs.md                    # /tradeoffs [topic]
+│       ├── antipatterns.md                 # /antipatterns [domain]
+│       ├── update-knowledge.md             # /update-knowledge
+│       └── status.md                       # /status
+├── agents/
+│   ├── app-builder-and-developer-agents.md # Platform + Developer coach
+│   ├── data-architect-agent.md             # Data architecture coach
+│   ├── devops-agent.md                     # DevOps & deployment coach
+│   ├── iam-agent.md                        # Identity & access coach
+│   ├── integration-agent.md                # Integration architecture coach
+│   ├── sharing-visibility-agent.md         # Sharing & visibility coach
+│   └── knowledge-updater-agent.md          # Automated knowledge sync agent
+└── knowledge/
+    ├── salesforce-architect-framework.md   # Well-Architected Framework reference
+    ├── domain-guides/                      # Per-domain study guides
+    │   ├── integration-architecture.md
+    │   ├── identity-access-management.md
+    │   ├── sharing-and-visibility.md
+    │   ├── data-architecture.md
+    │   ├── dev-lifecycle-and-deployment.md
+    │   └── platform-app-builder-and-developer.md
+    ├── scenarios/                          # Practice CTA scenarios
+    └── release-notes/                      # Auto-updated by /update-knowledge
 ```
-
-> The `knowledge/` directory (release notes, domain guides, additional scenarios) is populated on first run of `/update-knowledge`.
 
 ---
 

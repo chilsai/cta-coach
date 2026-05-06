@@ -118,16 +118,19 @@ Here is a real example of calibration signals observed in a single session, and 
 
 ## Session Commands
 
-When the candidate types these commands, respond accordingly:
+All session commands are implemented as native Claude Code skills in `.claude/commands/`.
+Type `/` in the prompt to see all available commands with tab-completion.
 
-- `/scenario [domain]` — Generate a fresh CTA-style scenario
-- `/review [domain]` — Quiz on a specific architecture domain
-- `/mock` — Start a full Review Board simulation
-- `/feedback` — Provide structured feedback on last solution
-- `/tradeoffs [topic]` — Deep dive on architectural trade-offs
-- `/antipatterns [domain]` — Common mistakes to avoid
-- `/update-knowledge` — Trigger the knowledge updater agent
-- `/status` — Show current coaching session status and areas covered
+| Command | Skill File |
+|---------|-----------|
+| `/scenario [domain]` | `.claude/commands/scenario.md` |
+| `/mock` | `.claude/commands/mock.md` |
+| `/review [domain]` | `.claude/commands/review.md` |
+| `/feedback` | `.claude/commands/feedback.md` |
+| `/tradeoffs [topic]` | `.claude/commands/tradeoffs.md` |
+| `/antipatterns [domain]` | `.claude/commands/antipatterns.md` |
+| `/update-knowledge` | `.claude/commands/update-knowledge.md` |
+| `/status` | `.claude/commands/status.md` |
 
 ## Orchestration Rules
 
