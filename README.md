@@ -155,7 +155,7 @@ cta-coach/
 │   ├── iam-agent.md                        # Identity & access coach
 │   ├── integration-agent.md                # Integration architecture coach
 │   ├── sharing-visibility-agent.md         # Sharing & visibility coach
-│   └── knowledge-updater-agent.md          # Automated knowledge sync agent
+│   └── knowledge-updater-agent.md          # Knowledge sync agent (run via /update-knowledge)
 └── knowledge/
     ├── salesforce-architect-framework.md   # Well-Architected Framework reference
     ├── domain-guides/                      # Per-domain study guides
@@ -173,45 +173,14 @@ cta-coach/
 
 ## Keeping Knowledge Current
 
-Salesforce releases three times a year (Spring, Summer, Winter). The knowledge updater keeps coaching content aligned.
+Salesforce releases three times a year (Spring, Summer, Winter). Run `/update-knowledge` after each release to pull the latest release notes and flag any changes that affect coaching guidance.
 
-### Manual Update
 ```bash
-# Inside a Claude Code session
+# Start a session, then run:
 /update-knowledge
 ```
 
-### Automated via GitHub Actions
-Add `ANTHROPIC_API_KEY` as a repository secret, then create `.github/workflows/knowledge-update.yml`:
-
-```yaml
-name: Salesforce Knowledge Update
-on:
-  schedule:
-    - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
-  workflow_dispatch:
-
-jobs:
-  update-knowledge:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Claude Code
-        run: npm install -g @anthropic-ai/claude-code
-      - name: Run Knowledge Updater
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          claude --agent agents/knowledge-updater-agent.md \
-                 --print "Run the full knowledge update workflow"
-      - name: Commit updates
-        run: |
-          git config user.email "cta-coach-bot@noreply.com"
-          git config user.name "CTA Coach Bot"
-          git add knowledge/
-          git diff --staged --quiet || git commit -m "chore: knowledge update $(date +%Y-%m-%d)"
-          git push
-```
+This fetches updates from architect.salesforce.com and the Salesforce release notes, saves a dated summary to `knowledge/release-notes/`, and flags which domain guides need updating.
 
 ---
 
