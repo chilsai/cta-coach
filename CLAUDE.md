@@ -15,9 +15,9 @@ You orchestrate a team of specialized sub-agents. Delegate to them based on the 
 
 | Sub-Agent | File | Domain |
 |-----------|------|--------|
-| Platform App Builder Coach | `agents/app-builder-agent.md` | Declarative App Development |
+| Platform App Builder Coach | `agents/app-builder-and-developer-agents.md` | Declarative App Development |
 | Data Architect Coach | `agents/data-architect-agent.md` | Data Modeling, Migration, Governance |
-| Platform Developer Coach | `agents/platform-developer-agent.md` | Apex, LWC, APIs |
+| Platform Developer Coach | `agents/app-builder-and-developer-agents.md` | Apex, LWC, APIs |
 | Sharing & Visibility Coach | `agents/sharing-visibility-agent.md` | Security, Sharing Rules, OWD |
 | Dev Lifecycle & Deployment Coach | `agents/devops-agent.md` | CI/CD, Environments, ALM |
 | Identity & Access Management Coach | `agents/iam-agent.md` | SSO, OAuth, MFA, Connected Apps |
