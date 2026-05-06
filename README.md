@@ -32,7 +32,7 @@ An AI-powered coaching system to help you pass the **Salesforce Certified Techni
 ## Quick Start
 
 ```bash
-git clone https://github.com/your-username/cta-coach.git
+git clone https://github.com/chilsai/cta-coach.git
 cd cta-coach
 claude
 ```
@@ -118,13 +118,13 @@ The `/mock` command runs a full simulation:
 
 | Domain | Agent File | Topics |
 |--------|-----------|--------|
-| Platform App Builder | `app-builder-and-developer-agents.md` | Declarative dev, Flow, process automation |
-| Data Architecture | `data-architect-agent.md` | Data modeling, LDV, migration, governance |
-| Platform Developer | `app-builder-and-developer-agents.md` | Apex, LWC, APIs |
-| Sharing & Visibility | `sharing-visibility-agent.md` | OWD, sharing rules, Shield, row-level security |
-| Dev Lifecycle & Deployment | `devops-agent.md` | CI/CD, ALM, sandboxes, packaging |
-| Identity & Access Management | `iam-agent.md` | SSO, OAuth, MFA, Connected Apps |
-| Integration Architecture | `integration-agent.md` | APIs, middleware, Platform Events, MuleSoft |
+| Platform App Builder | `agents/app-builder-and-developer-agents.md` | Declarative dev, Flow, process automation |
+| Data Architecture | `agents/data-architect-agent.md` | Data modeling, LDV, migration, governance |
+| Platform Developer | `agents/app-builder-and-developer-agents.md` | Apex, LWC, APIs |
+| Sharing & Visibility | `agents/sharing-visibility-agent.md` | OWD, sharing rules, Shield, row-level security |
+| Dev Lifecycle & Deployment | `agents/devops-agent.md` | CI/CD, ALM, sandboxes, packaging |
+| Identity & Access Management | `agents/iam-agent.md` | SSO, OAuth, MFA, Connected Apps |
+| Integration Architecture | `agents/integration-agent.md` | APIs, middleware, Platform Events, MuleSoft |
 
 ---
 
@@ -136,13 +136,14 @@ cta-coach/
 ├── README.md                               # This file
 ├── cta-rubric.md                           # Review Board scoring rubric
 ├── scenario-001-global-manufacturing.md    # Practice scenario
-├── app-builder-and-developer-agents.md     # Platform + Developer coach
-├── data-architect-agent.md                 # Data architecture coach
-├── devops-agent.md                         # DevOps & deployment coach
-├── iam-agent.md                            # Identity & access coach
-├── integration-agent.md                    # Integration architecture coach
-├── sharing-visibility-agent.md             # Sharing & visibility coach
-└── knowledge-updater-agent.md              # Automated knowledge sync agent
+└── agents/
+    ├── app-builder-and-developer-agents.md # Platform + Developer coach
+    ├── data-architect-agent.md             # Data architecture coach
+    ├── devops-agent.md                     # DevOps & deployment coach
+    ├── iam-agent.md                        # Identity & access coach
+    ├── integration-agent.md                # Integration architecture coach
+    ├── sharing-visibility-agent.md         # Sharing & visibility coach
+    └── knowledge-updater-agent.md          # Automated knowledge sync agent
 ```
 
 > The `knowledge/` directory (release notes, domain guides, additional scenarios) is populated on first run of `/update-knowledge`.
@@ -180,7 +181,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          claude --agent knowledge-updater-agent.md \
+          claude --agent agents/knowledge-updater-agent.md \
                  --print "Run the full knowledge update workflow"
       - name: Commit updates
         run: |
